@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechDocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Receipts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Service" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Receipt_Amount" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Services">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Service_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Issue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="TechDocModelStoreContainer">
+    <EntitySet Name="tbl_Customers" EntityType="Self.tbl_Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Receipts" EntityType="Self.tbl_Receipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Services" EntityType="Self.tbl_Services" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
